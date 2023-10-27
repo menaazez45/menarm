@@ -1,23 +1,4 @@
-<?php
-if(isset($_post['send'])){
 
-    include "connect.php";
-
-    $name = $_POST['name'];
-    $email = $_post['email'];
-    $password = $_post['password'];
-    $a = $_post['a'];
-
-    $stmt = $db->prepare("INSERT INTO fname(name , email , password , a)
-         values(:n,:e,:p,:a)")
-$stmt->execute(array(
-    'n'=> $name,
-    'e' => $email,
-    'p' => $password,
-    'a' => $a,
-));
-}
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,4 +29,24 @@ $stmt->execute(array(
     </form>
 </body>
 
+<?php
+if(isset($_post['send'])){
+
+    include "connect.php";
+
+    $name = $_POST['name'];
+    $email = $_post['email'];
+    $password = $_post['password'];
+    $a = $_post['a'];
+
+    $stmt = $db->prepare("INSERT INTO fname(name , email , password , a)
+         values(:n,:e,:p,:a)")
+$stmt->execute(array(
+    'n'=> $name,
+    'e' => $email,
+    'p' => $password,
+    'a' => $a,
+));
+}
+?>
 </html>
